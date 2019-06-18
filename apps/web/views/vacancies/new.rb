@@ -28,7 +28,7 @@ module Web
               label 'Позиция *'
               div(class: 'row') do
                 div(class: 'col-8') do
-                  text_field :position, placeholder: 'Ruby разработчик', class: 'form-control', required: true
+                  text_field :position, placeholder: 'Ruby-разработчик', class: 'form-control', required: true
                 end
 
                 div(class: 'col-4') do
