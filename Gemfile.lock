@@ -202,7 +202,6 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
-    jaro_winkler (1.5.2)
     jquery-hanami (0.1.0)
       hanami-assets
     json (2.1.0)
@@ -253,11 +252,9 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    parallel (1.13.0)
     parser (2.5.3.0)
       ast (~> 2.4.0)
     pg (1.1.4)
-    powerpack (0.1.2)
     procto (0.0.3)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -270,7 +267,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rainbow (3.0.0)
     rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
@@ -320,17 +316,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.63.1)
-      jaro_winkler (~> 1.5.1)
-      parallel (~> 1.10)
-      parser (>= 2.5, != 2.5.1.1)
-      powerpack (~> 0.1)
-      rainbow (>= 2.2.2, < 4.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.4.0)
-    rubocop-rspec (1.25.1)
-      rubocop (>= 0.53.0)
-    ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     rufus-scheduler (3.5.2)
       fugit (~> 1.1, >= 1.1.5)
@@ -373,7 +358,6 @@ GEM
     transproc (1.0.3)
     tzinfo (2.0.0)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (1.4.1)
     unparser (0.4.2)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2.0)
@@ -417,8 +401,6 @@ DEPENDENCIES
   rouge (= 1.11.1)
   rspec
   rspec-hanami
-  rubocop
-  rubocop-rspec (~> 1.25.0)
   sass
   semantic_logger
   sidekiq
