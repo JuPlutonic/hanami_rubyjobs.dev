@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+module Web
+  module Controllers
+    module Vacancies
+      class Index
+        include Web::Action
+        include Dry::Monads::Result::Mixin
+
+        include Import[
+          operation: 'vacancies.operations.list'
+        ]
+
+        expose :vacancies
+        expose :pager
+
+        def call(params)
+          result = operation.call(params)
+
+          case result
+          when Success
+            @pager     = result.value![:pager]
+            @vacancies = result.value![:result]
+          end
+        end
+      end
+    end
+  end
+end

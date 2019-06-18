@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | #{title} - RubyJobs
+
+    = favicon
+    = stylesheet 'bootstrap', 'main'
+    = render partial: 'shared/meta_tags'
+
+  body.h-100
+    main
+      .container
+        = yield
+
+    = render partial: 'shared/footer'
+
+    = javascript 'jquery', 'bootstrap', 'main'

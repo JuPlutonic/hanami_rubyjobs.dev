@@ -1,0 +1,8 @@
+LOG:  database system was shut down at 2019-06-18 06:39:08 SST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "schema_migrations" does not exist at character 27
+STATEMENT:  SELECT NULL AS "nil" FROM "schema_migrations" LIMIT 1
+ERROR:  relation "schema_info" does not exist at character 27
+STATEMENT:  SELECT NULL AS "nil" FROM "schema_info" LIMIT 1
