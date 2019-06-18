@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
- RSpec.describe Web::Views::RssFeed::Generator, type: :view do
+RSpec.describe Web::Views::RssFeed::Generator, type: :view do
   subject { view.call(payload) }
 
-   let(:view) { described_class.new(current_time: -> { time }) }
+  let(:view) { described_class.new(current_time: -> { time }) }
   let(:payload) { { vacancies: [vacancy] } }
   let(:vacancy) { Fabricate.build(:vacancy, published: true, updated_at: time) }
   let(:time) { Time.at(1_556_128_838).utc }
@@ -31,6 +31,6 @@
       </feed>
     RSS
 
-     expect("#{subject}\n").to eq(xml_rss)
+    expect("#{subject}\n").to eq(xml_rss)
   end
 end
