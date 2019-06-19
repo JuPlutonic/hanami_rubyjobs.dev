@@ -6,3 +6,10 @@ ERROR:  relation "schema_migrations" does not exist at character 27
 STATEMENT:  SELECT NULL AS "nil" FROM "schema_migrations" LIMIT 1
 ERROR:  relation "schema_info" does not exist at character 27
 STATEMENT:  SELECT NULL AS "nil" FROM "schema_info" LIMIT 1
+LOG:  database system was interrupted; last known up at 2019-06-18 07:32:37 SST
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  invalid record length at 0/152B3F8: wanted 24, got 0
+LOG:  redo is not required
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
