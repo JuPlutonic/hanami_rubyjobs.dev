@@ -8,9 +8,10 @@ class RequestId
   #
   # @param [App] app rack app
   # @param [SemanticLogger::Logger] logger logger instance
-  def initialize(app, logger = Container[:logger])
+  def initialize(app, logger: Container[:logger], logger: Container[:rollbar])
     @app = app
     @logger = logger
+    @rollbar = rollbar
   end
 
   # Tag all logger calls with request id information
@@ -23,6 +24,10 @@ class RequestId
 
     @logger.tagged(requires_id: env['request_id']) do
       @app.call(env)
+    end
+    rescue StandardError => e
+      @rollbar.error(requires_id: env['request_id'], error: e)
+      @logger.error(requires_id: env['request_id'], error: e)
     end
   end
 end
