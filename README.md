@@ -3,6 +3,8 @@
 
 Welcome to your new Hanami project!
 
+## For error collecting using Rollbar.
+
 ## Setup
 
 There is Dockerfile, ruby version in this file: 2.6.3
