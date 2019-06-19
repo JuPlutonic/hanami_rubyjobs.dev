@@ -7,7 +7,12 @@ module Web
 
       def company_text(vacancy)
         if vacancy.contact.site
-          html.a(vacancy.contact.company, href: add_url_schema(vacancy.contact.site), target: '_blank', rel: 'nofollow noopener')
+          html.a(
+            vacancy.contact.company,
+            href: add_url_schema(vacancy.contact.site),
+            target: '_blank',
+            rel: 'nofollow noopener'
+          )
         else
           vacancy.contact.company
         end
@@ -16,7 +21,7 @@ module Web
       def remote_badge(vacancy)
         return unless vacancy.remote_available
 
-        html.span(class: 'mr-2 badge badge-success') { 'Удаленно' }
+        html.span(class: 'mr-2 badge badge-success') { 'Удаленная работа' }
       end
 
       def position_type_badge(vacancy)
