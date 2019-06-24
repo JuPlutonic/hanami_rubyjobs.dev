@@ -61,10 +61,17 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
     let(:success_flash) { 'Вакансия успешно отправлена на модерацию. В ближайшее время она появится на главной.' }
 
     it { expect(subject).to redirect_to '/' }
+
     it 'show flash message' do
       subject
       expect(action.exposures[:flash][:success]).to eq(success_flash)
     end
+  end
+
+  context 'when operation returns failure result' do
+    let(:operation) { ->(*) { Failure(:error) } }
+
+    it { expect(subject).to have_http_status(200) }
   end
 
   context 'with real dependencies' do

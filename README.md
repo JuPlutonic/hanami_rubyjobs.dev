@@ -1,7 +1,7 @@
 # Core
 [![CircleCI](https://circleci.com/gh/davydovanton/rubyjobs.dev/tree/master.svg?style=svg)](https://circleci.com/gh/davydovanton/rubyjobs.dev/tree/master)
 
-Welcome to your new Hanami project!
+Project information: Jobs board. [About](http://github.com/JuPlutonic/hanami_rubyjobs.dev/apps/web/templates/static/about.html.slim) [Sitemap](…)
 
 ## For error collecting using Rollbar.
 
@@ -22,21 +22,21 @@ How to run tests:
 How to run the development console:
 
 ```
-% DATABASE_URL="postgres://salessionato@localhost/hanami_rubyjobs"; bundle exec hanami console
+% DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs"; bundle exec hanami console
 ```
 
 How to run the development server:
 
 ```
-% DATABASE_URL="postgres://salessionato@localhost/hanami_rubyjobs"; bundle exec hanami server
+% DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs"; bundle exec hanami server
 ```
 
 How to prepare (create and migrate) DB for `development` and `test` environments:
 
 ```
-% export DATABASE_URL="postgres://salessionato@localhost/hanami_rubyjobs"; bundle exec hanami db prepare
+% export DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs"; bundle exec hanami db prepare
 
-% DATABASE_URL="postgres://salessionato@localhost/hanami_rubyjobs" HANAMI_ENV=test bundle exec hanami db prepare
+% DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs" HANAMI_ENV=test bundle exec hanami db prepare
 ```
 
 Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸

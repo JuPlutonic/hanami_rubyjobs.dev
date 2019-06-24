@@ -5,9 +5,24 @@ module Moderation
     module VacancyApprove
       class Update
         include Moderation::Action
+        include Dry::Monads::Result::Mixin
+        include Import[
+          :rollbar,
+          operation: 'vacancies.operations.approve'
+        ]
 
-        def call(_params)
-          self.body = 'OK'
+        expose :vacancies
+
+        def call(params)
+          result = operation.call(id: params[:id])
+
+          case result
+          when Success
+            redirect_to routes.root_path
+          when Failure
+            rollbar.error(result.failure)
+            redirect_to routes.root_path
+          end
         end
       end
     end
