@@ -2,3 +2,7 @@
 /tmp
 /coverage
 dump.rdb
+.idea
+.ruby-version
+.env.dev
+.env.development
