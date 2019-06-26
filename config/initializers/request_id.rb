@@ -8,7 +8,7 @@ class RequestId
   #
   # @param [App] app rack app
   # @param [SemanticLogger::Logger] logger logger instance
-  def initialize(app, logger: Container[:logger], logger: Container[:rollbar])
+  def initialize(app, logger: Container[:logger], rollbar: Container[:rollbar])
     @app = app
     @logger = logger
     @rollbar = rollbar
