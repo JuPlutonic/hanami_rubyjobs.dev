@@ -19,6 +19,12 @@ RSpec.describe Web::Controllers::Vacancies::Index, type: :action do
     end
   end
 
+  context 'when params includes unexpected keys' do
+    let(:params) { { page: 2, unexpected_key: 'hello' } }
+
+    it { expect(subject).to be_success }
+  end
+
   context 'with real dependencies' do
     subject { action.call(params) }
 
