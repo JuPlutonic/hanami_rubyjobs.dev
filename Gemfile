@@ -71,6 +71,8 @@ gem 'hiredis'
 gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler'
+# Run any kind of code in parallel processes (https://github.com/grosser/parallel)
+# gem 'parallel'
 
 group :development do
   ##===========code reloading
