@@ -7,10 +7,11 @@ module Web
         include Web::Action
         include Dry::Monads::Result::Mixin
         include Import[
-          operation: 'vacancies.operations.show'
+          operation: 'vacancies.operations.show',
+          analytics_operation: 'analytics.operations.increase_vacancy_view_count'
         ]
 
-        expose :vacancy
+        expose :vacancy, :analytics
 
         def call(params)
           result = operation.call(id: params[:id])
@@ -18,6 +19,7 @@ module Web
           case result
           when Success
             @vacancy = result.value!
+            @analytics = analytics_operation.call(vacancy_id: params[:id]).value_or(VacancyAnalytic.new)
           when Failure
             redirect_to routes.root_path
           end
