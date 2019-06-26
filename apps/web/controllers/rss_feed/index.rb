@@ -6,7 +6,8 @@ module Web
         include Web::Action
         include Dry::Monads::Result::Mixin
         include Import[
-          operation: 'vacancies.operations.list'
+          operation: 'vacancies.operations.list',
+          generator: 'web.vacancies.generators.rss'
         ]
 
         def call(_params)
@@ -15,7 +16,7 @@ module Web
 
           case result
           when Success
-            self.body = Views::RRSFeed::Generator.new.call(vacancies: result.value![:result])
+            self.body = generator.call(vacancies: result.value![:result])
           when Failure
             self.status = 422
             self.body = 'Failure'
