@@ -89,7 +89,7 @@ module Moderation
       #
       # middleware.use Rack::Protection
       #
-      if Hanami.env&(:Production)
+      if Hanami.env?(:production)
         middleware.use Rack::Auth::Basic, 'RubyJobs' do |login, password|
           login == ENV['MODERATION_LOGIN'] && password == ENV['MODERATION_PASSWORD']
         end
