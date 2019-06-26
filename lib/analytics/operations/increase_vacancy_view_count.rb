@@ -4,7 +4,7 @@ module Analytics
   module Operations
     class IncreaseVacancyViewCount < ::Libs::Operation
       include Import[
-        vacancy_analytic_repo: 'reositories.vacancy_analytic'
+        vacancy_analytic_repo: 'repositories.vacancy_analytic'
       ]
 
       def call(vacancy_id:)

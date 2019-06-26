@@ -16,7 +16,7 @@ ul.list-group
     li.list-group-item
       .row
         .col-sm-8
-          h4 = link_to vacancy.position, routes.vacancy_path(vacancy.id), title: vacany.position
+          h4 = link_to vacancy.position, routes.vacancy_path(vacancy.id), title: vacancy.position
         .col-sm-4
           = vacancy_salary_information(vacancy)
       .row
@@ -25,7 +25,7 @@ ul.list-group
         .col-sm-4
           = remote_badge(vacancy)
           = position_type_badge(vacancy)
-        = tag_bages(vacancy.tags)
+        = tag_badges(vacancy.tags)
 
 .row.mt-3
   .col
