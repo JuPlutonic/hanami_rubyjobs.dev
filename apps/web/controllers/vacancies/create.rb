@@ -7,10 +7,13 @@ module Web
         include Web::Action
         include Dry::Monads::Result::Mixin
         include Import[
+          :rollbar,
+          :logger,
           vacancy_mapping: 'vacancies.mappers.vacancy',
           operation: 'vacancies.operations.create'
         ]
 
+        # rubocop:disable Metrics/AbcSize, Metrics/MethodLen
         def call(params)
           payload = vacancy_mapping.call(params[:vacancy])
           result = operation.call(**payload)
@@ -19,12 +22,15 @@ module Web
           when Success
             flash[:success] = 'Вакансия успешно отправлена на модерацию. В ближайшее время она появится на главной.'
             redirect_to routes.root_path
-            # TODO: log and trigger rollbar in this case. Also, show new page again
-            #
-            # when Failure
-            #   redirect_to routes.project_path(params[:environment][:project_id])
+          when Failure
+            flash[:fail] = 'Произошла ошибка, пожалуйста повторите позже'
+            logger.error("fail on vacancy create, payload: #{payload}, result: #{result.failure}")
+            rollbar.error(result.failure, payload: payload)
+            redirect_to routes.root_path
+          end
           end
         end
+        # rubocop:enable Metrics/AbcSize, Metrics/MethodLen
       end
     end
   end
