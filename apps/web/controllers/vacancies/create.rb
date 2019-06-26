@@ -28,9 +28,14 @@ module Web
             rollbar.error(result.failure, payload: payload)
             redirect_to routes.root_path
           end
-          end
         end
         # rubocop:enable Metrics/AbcSize, Metrics/MethodLen
+
+        private
+
+        def verify_csrf_token?
+          false
+        end
       end
     end
   end

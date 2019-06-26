@@ -314,6 +314,9 @@ module Web
       host   'rubyjobs.dev'
       # port   443
 
+      # Don't handle exceptions, render the stack trace
+      handle_exceptions false
+
       assets do
         # Don't compile static assets in production mode (eg. Sass, ES6)
         #

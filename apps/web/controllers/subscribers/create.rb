@@ -21,6 +21,8 @@ module Web
             flash[:error] = 'Произошла ошибка, попробуйте позже.'
             redirect_to routes.root_path
           end
+        end
+      end
     end
   end
 end
