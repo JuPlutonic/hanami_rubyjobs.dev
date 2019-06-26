@@ -16,6 +16,8 @@ gem 'puma', '~> 3.11.0'
 ##======logic tier=http layer
 # The web, with simplicity (http://hanamirb.org)
 gem 'hanami', '1.3.0'
+# Simple XML sitemap generator for Ruby/Rails applications. (http://github.com/sosedoff/xml-sitemap)
+gem 'xml-sitemap'
 
 ##===========persistance tier
 # A persistence layer for Hanami (http://hanamirb.org)
