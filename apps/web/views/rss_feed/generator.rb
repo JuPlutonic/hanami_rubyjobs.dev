@@ -14,6 +14,7 @@ module Web
         def initialize(current_time: -> { Time.now })
           @current_time = current_time
         end
+
         def call(vacancies)
           rss = RSS::Maker.make('atom') do |maker|
             maker.channel.author = 'RubyJobs.Net'

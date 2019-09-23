@@ -1,5 +1,6 @@
-require: rubocop-rspec
-require: rubocop-performance
+require:
+  - rubocop-rspec
+  - rubocop-performance
 
 # We are using default RuboCop settings.
 # We are writing beautiful code.

@@ -21,7 +21,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
           unit: 'monthly'
         },
         archived_in_weeks: '2',
-        tags: %w[rails mruby postgresql]
+        tags: %w[rails mruby postgresql],
         contact: {
           email: 'test@something.com',
           full_name: 'First Name',

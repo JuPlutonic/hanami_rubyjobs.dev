@@ -29,7 +29,7 @@ module Web
             redirect_to routes.root_path
           end
         end
-        # rubocop:enable Metrics/AbcSize, Metrics/MethodLen
+        # rubocop:enable Metrics/AbcSize
 
         private
 
