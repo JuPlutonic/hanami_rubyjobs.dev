@@ -17,7 +17,7 @@ RSpec.describe Web::Views::ApplicationLayout, type: :view do
 
       it do
         expect(subject).to eq(
-          '<a href="http://rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
+          '<a href="http://rubyjobs.dev" title="Сайт компании rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
         )
       end
     end
@@ -27,7 +27,7 @@ RSpec.describe Web::Views::ApplicationLayout, type: :view do
 
       it do
         expect(subject).to eq(
-          '<a href="http://rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
+          '<a href="http://rubyjobs.dev" title="Сайт компании rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
         )
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe Web::Views::ApplicationLayout, type: :view do
 
       it do
         expect(subject).to eq(
-          '<a href="https://rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
+          '<a href="https://rubyjobs.dev" title="Сайт компании rubyjobs.dev" target="_blank">rubyjobs.dev</a>'
         )
       end
     end
