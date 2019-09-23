@@ -15,6 +15,7 @@ module Web
           @current_time = current_time
         end
 
+        # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
         def call(vacancies)
           rss = RSS::Maker.make('atom') do |maker|
             maker.channel.author = 'RubyJobs.Net'
@@ -31,9 +32,9 @@ module Web
               end
             end
           end
-          # rubocop:denable Metrics/LineLength, Metrics/AbsLength
           raw(rss.to_s)
         end
+        # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
       end
     end
   end
