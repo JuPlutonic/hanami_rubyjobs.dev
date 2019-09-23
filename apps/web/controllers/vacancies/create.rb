@@ -13,7 +13,7 @@ module Web
           operation: 'vacancies.operations.create'
         ]
 
-        # rubocop:disable Metrics/AbcSize
+        # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         def call(params)
           payload = vacancy_mapping.call(params[:vacancy])
           result = operation.call(**payload)
@@ -29,7 +29,7 @@ module Web
             redirect_to routes.root_path
           end
         end
-        # rubocop:enable Metrics/AbcSize
+        # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
         private
 

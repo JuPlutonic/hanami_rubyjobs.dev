@@ -48,7 +48,6 @@ module Web
           end
         end
       end
-
       def vacancy_salary_information(vacancy)
         currency = CURRENCY_VALUES[vacancy.salary_currency]
         unit = UNIT_VALUES[vacancy.salary_unit]
@@ -61,6 +60,7 @@ module Web
           text " #{currency} #{unit}"
         end
       end
+      # rubocop:enable Metrics/AbcSize
 
       POSITION_TYPE_VALUES = {
         'full_time' => 'Полная занятость',

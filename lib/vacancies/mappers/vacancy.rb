@@ -4,7 +4,8 @@
 module Vacancies
   module Mappers
     class Vacancy
-      def call(payload) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      def call(payload)
         payload = Hash(payload)
 
         {
@@ -30,6 +31,7 @@ module Vacancies
           contact: payload[:contact]
         }
       end
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
       private
 

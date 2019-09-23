@@ -10,6 +10,7 @@ module Web
           operation: 'subscribers.operations.create'
         ]
 
+        # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
         def call(params)
           result = operation.call(email: params[:subscriber][:email])
 
@@ -17,11 +18,15 @@ module Web
           when Success
             flash[:success] = "#{result.value!.email} успешно добавлен в рассылку."
             redirect_to routes.root_path
+          when Failure { |error| error.is_a?(Hanami::Model::UniqueConstraintViolationError) }
+            flash[:error] = 'Произошла ошибка! Попробуйте позже, или используйте другой почтовый адрес.'
+            redirect_to routes.root_path
           when Failure
-            flash[:error] = 'Произошла ошибка, попробуйте позже.'
+            flash[:error] = "Не валидная почта \"#{params[:subscriber][:email]}\"."
             redirect_to routes.root_path
           end
         end
+        # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
       end
     end
   end

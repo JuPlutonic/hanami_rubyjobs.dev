@@ -3,7 +3,8 @@
 module Web
   module Views
     module Vacancies
-      class New # rubocop:disable Metrics/ClassLength
+      # rubocop:disable Metrics/ClassLength
+      class New
         include Web::View
 
         def title
@@ -201,6 +202,7 @@ module Web
           }
         end
       end
+      # rubocop:enable Metrics/ClassLength
     end
   end
 end

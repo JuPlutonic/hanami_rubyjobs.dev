@@ -5,7 +5,8 @@ require 'hanami/assets'
 
 module Web
   class Application < Hanami::Application
-    configure do # rubocop:disable Metrics/BlockLength
+    # rubocop:disable Metrics/BlockLength
+    configure do
       ##
       # BASIC
       #
@@ -289,6 +290,7 @@ module Web
         include Web::Helpers::AddUrlSchema
       end
     end
+    # rubocop:enable Metrics/BlockLength
 
     ##
     # DEVELOPMENT

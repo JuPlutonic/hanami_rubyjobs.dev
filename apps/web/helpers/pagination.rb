@@ -7,7 +7,8 @@ module Web
       private
 
       ONE_PAGINATION_PAGE = 1
-      def pagination(page) # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/AbcSize
+      def pagination(page)
         return if pager.total_pages == ONE_PAGINATION_PAGE
 
         html.nav do
@@ -22,6 +23,7 @@ module Web
           end
         end
       end
+      # rubocop:enable Metrics/AbcSize
 
       def previous_page_tag(page)
         disabled = pager.first_page? ? 'disabled' : nil
