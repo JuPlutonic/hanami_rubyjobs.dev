@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Subscribers::Create, type: :action do
   subject { action.call(params) }
 

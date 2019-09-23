@@ -11,10 +11,9 @@ module Web
 
         attr_reader :current_time
 
-        def initialize(current_time: ->{ Time.now })
+        def initialize(current_time: -> { Time.now })
           @current_time = current_time
         end
-        # rubocop:disable Metrics/LineLength, Metrics/AbsLength
         def call(vacancies)
           rss = RSS::Maker.make('atom') do |maker|
             maker.channel.author = 'RubyJobs.Net'

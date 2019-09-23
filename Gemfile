@@ -97,9 +97,11 @@ group :test, :development do
 
   ##==============style check
   # Automatic Ruby code style checking tool. (https://github.com/rubocop-hq/rubocop)
-  # gem 'rubocop', require: false
+  gem 'rubocop', require: false
   # Code style checking for RSpec files (https://github.com/rubocop-hq/rubocop-rspec)
-  # gem 'rubocop-rspec', '~> 1.25.0'
+  gem 'rubocop-performance', require: false
+  # Automatic performance checking tool for Ruby code. (https://github.com/rubocop-hq/rubocop-performance)
+  gem 'rubocop-rspec', '~> 1.25.0', require: false
 
   ##=========mutation testing
   # Rspec integration for mutant (https://github.com/mbj/mutant)
@@ -109,6 +111,8 @@ end
 group :test do
   # Capybara aims to simplify the process of integration testing Rack applications (https://github.com/teamcapybara/capybara)
   gem 'capybara'
+  # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
+  gem 'nokogiri', '>= 1.10.4'
   # rspec-3.8.0 (http://github.com/rspec)
   gem 'rspec'
   # RSpec Matchers for Hanami (https://github.com/davydovanton/rspec-hanami)

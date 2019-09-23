@@ -20,7 +20,7 @@ module Web
             vacancy.contact.company,
             href: add_url_schema(vacancy.contact.site),
             title: "Сайт компании #{vacancy.contact.company}",
-            target: '_blank',
+            target: '_blank'
           )
         else
           vacancy.contact.company

@@ -1,13 +1,8 @@
-# Core
-[![CircleCI](https://circleci.com/gh/davydovanton/rubyjobs.dev/tree/master.svg?style=svg)](https://circleci.com/gh/davydovanton/rubyjobs.dev/tree/master)
-
-Project information: Jobs board. [About](http://github.com/JuPlutonic/hanami_rubyjobs.dev/apps/web/templates/static/about.html.slim) [Sitemap](…)
-
-## For error collecting using Rollbar.
+###### For  collecting errors app uses Rollbar.
 
 ## Setup
 
-There is Dockerfile, ruby version in this file: 2.6.3
+There is Dockerfile, ruby version in this file: 2.6.4
 
 ```
 % docker build .
@@ -39,4 +34,4 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 % DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs" HANAMI_ENV=test bundle exec hanami db prepare
 ```
 
-Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸
+Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) or in gitter chat ![Gitter](https://badges.gitter.im/hanami/chat.svg)for help. Enjoy! 🌸
