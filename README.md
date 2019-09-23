@@ -34,4 +34,4 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 % DATABASE_URL="postgres://PG_USER@localhost/hanami_rubyjobs" HANAMI_ENV=test bundle exec hanami db prepare
 ```
 
-Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) or in gitter chat ![Gitter](https://badges.gitter.im/hanami/chat.svg)for help. Enjoy! 🌸
+Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) or in gitter chat [![Gitter](https://badges.gitter.im/hanami/chat.svg)](https://gitter.im/hanami/chat) for help. Enjoy! 🌸
