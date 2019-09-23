@@ -47,6 +47,8 @@ gem 'jquery-hanami'
 gem 'relative_time', github: 'davydovanton/relative_time', branch: 'master'
 # A powerful but elegant CSS compiler that makes CSS fun again. (http://sass-lang.com/)
 gem 'sass'
+# Use libsass with Ruby! (https://github.com/sass/sassc-ruby)
+gem 'sassc'
 # Slim is a template language. (http://slim-lang.com/)
 gem 'slim'
 
@@ -111,13 +113,14 @@ end
 group :test do
   # Capybara aims to simplify the process of integration testing Rack applications (https://github.com/teamcapybara/capybara)
   gem 'capybara'
-  # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
+  # Nokogiri is an HTML, XML, SAX, and Reader parser
   gem 'nokogiri', '>= 1.10.4'
   # rspec-3.8.0 (http://github.com/rspec)
   gem 'rspec'
   # RSpec Matchers for Hanami (https://github.com/davydovanton/rspec-hanami)
   gem 'rspec-hanami'
-  # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites (http://github.com/colszowka/simplecov)
+  # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test
+  #  suites (http://github.com/colszowka/simplecov)
   gem 'simplecov', require: false
   # JSON formatter for SimpleCov code coverage tool for ruby 1.9+ (https://github.com/vicentllongo/simplecov-json)
   gem 'simplecov-json', require: false

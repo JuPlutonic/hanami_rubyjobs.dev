@@ -8,19 +8,14 @@ module Web
     module RssFeed
       class Generator
         include Hanami::Helpers::EscapeHelper
-
-        attr_reader :current_time
-
-        def initialize(current_time: -> { Time.now })
-          @current_time = current_time
-        end
+        include Import[:current_time]
 
         # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
-        def call(vacancies)
+        def call(vacancies:)
           rss = RSS::Maker.make('atom') do |maker|
-            maker.channel.author = 'RubyJobs.Net'
+            maker.channel.author = 'RubyJobs.dev'
             maker.channel.updated = current_time.call
-            maker.channel.about = 'https://rubyjobs.dev/feeds.rss'
+            maker.channel.about = 'https://rubyjobs.dev/feed.rss'
             maker.channel.title = 'Ruby Jobs RSS Feed'
 
             vacancies.each do |vacancy|

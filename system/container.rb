@@ -22,6 +22,9 @@ class Container < Dry::System::Container
   #  Analytics
   register_folder! 'analytics/operations'
 
+  # Subscribers
+  register_folder! 'subscribers/operations'
+
   #  Vacancies
   register_folder! 'vacancies/mappers'
   register_folder! 'vacancies/operations'
@@ -35,3 +38,5 @@ class Container < Dry::System::Container
     config.env = Hanami.env
   end
 end
+
+Container.register(:current_time) { -> { Time.now } }

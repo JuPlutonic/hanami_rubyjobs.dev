@@ -10,8 +10,8 @@ RSpec.describe Web::Views::RssFeed::Generator, type: :view do
   let(:vacancy) { Fabricate.build(:vacancy, published: true, updated_at: time) }
   let(:time) { Time.at(1_556_128_838).utc }
 
-  it { expect(subject.author.name.content).to eq 'RubyJobs' }
-  it { expect(subject.title.content).to eq 'Ruby Jobs RSS feed' }
+  it { expect(subject.author.name.content).to eq 'RubyJobs.dev' }
+  it { expect(subject.title.content).to eq 'Ruby Jobs RSS Feed' }
   it { expect(subject.id.content).to eq 'https://rubyjobs.dev/feed.rss' }
   it { expect(subject.updated.content).to eq time }
   it { expect(subject.date).to eq time }

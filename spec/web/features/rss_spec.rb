@@ -18,8 +18,8 @@ RSpec.describe 'GET /', type: :feature do
 
     feed = RSS::Parser.parse(page.body)
 
-    expect(feed.author.name.content).to eq 'RubyJobs'
-    expect(feed.title.content).to eq 'Ruby Jobs RSS feed'
+    expect(feed.author.name.content).to eq 'RubyJobs.dev'
+    expect(feed.title.content).to eq 'Ruby Jobs RSS Feed'
     expect(feed.id.content).to eq 'https://rubyjobs.dev/feed.rss'
 
     expect(feed.entries.size).to eq 2

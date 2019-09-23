@@ -3,7 +3,7 @@
 RSpec.describe Web::Controllers::RssFeed::Index, type: :action do
   subject { action.call(params) }
 
-  let(:action) { described_class.new(operation: operation) }
+  let(:action) { described_class.new(operation: operation,  generator: generator) }
   let(:generator) { ->(*) { 'rss' } }
   let(:params) { Hash[] }
 
@@ -20,6 +20,7 @@ RSpec.describe Web::Controllers::RssFeed::Index, type: :action do
     let(:operation) { ->(*) { Failure(:something_happened) } }
 
     it { expect(subject).to have_http_status(422) }
+    it { expect(subject[2]).to eq(['Failure']) }
     it { expect(subject[1]['Content-Type']).to eq('application/xml; charset=utf-8') }
   end
 
