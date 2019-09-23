@@ -12,7 +12,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
         position: 'ruby developer',
         position_type: 'full_time',
         details_raw: 'test something here',
-        location: 'moscow',
+        location: 'Moscow',
         remote_available: '1',
         salary: {
           min: '1000000',
@@ -21,7 +21,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
           unit: 'monthly'
         },
         archived_in_weeks: '2',
-        tags: %w[rails mruby postgresql],
+        tags: 'rails, mruby, PostgreSQL',
         contact: {
           email: 'test@something.com',
           full_name: 'First Name',
@@ -40,7 +40,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
 
         details_raw: 'test something here',
 
-        location: 'moscow',
+        location: 'Moscow',
         remote_available: true,
 
         salary_min: 1_000_000,
@@ -48,7 +48,8 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
         salary_currency: 'rub',
         salary_unit: 'monthly',
 
-        archived_in_weeks: 2
+        archived_in_weeks: 2,
+        tags: %w[rails mruby postgresql]
       },
       contact: { email: 'test@something.com', full_name: 'First Name', company: 'test', site: '' }
     )
