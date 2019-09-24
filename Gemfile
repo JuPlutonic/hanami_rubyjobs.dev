@@ -70,7 +70,8 @@ gem 'dry-monads', '~> 1.1.0'
 # Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O) (http://github.com/redis/hiredis-rb)
 gem 'hiredis'
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
-gem 'sidekiq'
+# gem 'sidekiq', '~>5.2'
+gem 'sidekiq', '~>6'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler'
 # Run any kind of code in parallel processes (https://github.com/grosser/parallel)

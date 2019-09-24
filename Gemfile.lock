@@ -427,7 +427,7 @@ DEPENDENCIES
   sass
   sassc
   semantic_logger
-  sidekiq
+  sidekiq (~> 6)
   sidekiq-scheduler
   simplecov
   simplecov-json
