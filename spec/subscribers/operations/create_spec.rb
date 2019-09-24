@@ -3,9 +3,8 @@
 RSpec.describe Subscribers::Operations::Create, type: :operation do
   subject { operation.call(email: email) }
 
-  let(:operation) do
-    described_class.new
-  end
+  let(:operation) { described_class.new(subscriber_repo: subscriber_repo) }
+  let(:subscriber_repo) { instance_double('SubscriberRepository', create: Subscriber.new(email: email)) }
 
   # let(:contact_repo) { instance_double('ContactRepository', create: Vacancy.new) }
   context 'when email is valid' do
@@ -17,7 +16,25 @@ RSpec.describe Subscribers::Operations::Create, type: :operation do
   end
 
   context 'when email is invalid' do
-    let(:email) { 'blank.org' }
+    [
+      'blank.org',
+      '@blank.org',
+      'blank@.org',
+      'blank@org',
+      'blank@',
+      '@blank'
+    ].each do |invalid_email|
+      let(:email) { invalid_email }
+      it { expect(subject).to be_failure }
+    end
+  end
+
+  context 'when someting wrong with db' do
+    let(:email) { 'test@blank.org' }
+
+    before do
+      allow(subscriber_repo).to receive(:create).and_raise(Hanami::Model::UniqueConstraintViolationError)
+    end
 
     it { expect(subject).to be_failure }
   end
@@ -29,5 +46,8 @@ RSpec.describe Subscribers::Operations::Create, type: :operation do
     let(:email) { 'test@blank.org' }
 
     it { expect(subject).to be_success }
+    it do
+      expect { subject }.to change { SubscriberRepository.new.all.count }.by(1)
+    end
   end
 end
