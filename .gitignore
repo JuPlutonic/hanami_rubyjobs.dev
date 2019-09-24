@@ -6,3 +6,6 @@ dump.rdb
 .ruby-version
 .env.dev
 .env.development
+.env.test
+.env.development.sample
+.env.test.sample

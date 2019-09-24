@@ -30,8 +30,8 @@ module Web
                 div(class: 'col-8') do
                   text_field :email, placeholder: 'Email адрес', class: 'form-control', required: true
                 end
-                div(class: 'col-4') do
-                  submit 'Отправить', class: 'btn btn-success btn-lg'
+                div(class: 'col-4 mb-1') do
+                  submit 'Отправить', class: 'btn btn-success'
                 end
               end
             end
