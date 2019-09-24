@@ -243,14 +243,14 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https://graph.facebook.com https://connect.ok.ru https://vk.com https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' https://graph.facebook.com https://connect.ok.ru https://vk.com https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
         connect-src 'self' https://www.googletagmanager.com;
-        img-src 'self' https: data:;
-        style-src 'self' 'unsafe-inline' https:;
+        img-src 'self' 'unsafe-inline' https://ssl.gstatic.com https: data:;
+        style-src 'self' 'unsafe-inline' https://tagmanager.google.com https://fonts.googleapis.com/ https:;
         font-src 'self';
         object-src 'none';
         plugin-types application/pdf;
-        child-src 'self';
+        worker-src 'self';
         frame-src 'self';
         media-src 'self'
       )
