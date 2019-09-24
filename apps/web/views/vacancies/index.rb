@@ -28,7 +28,7 @@ module Web
             div(class: 'form-group') do
               div(class: 'row') do
                 div(class: 'col-8') do
-                  text_field :email, placeholder: 'Email адресс', class: 'form-control', required: true
+                  text_field :email, placeholder: 'Email адрес', class: 'form-control', required: true
                 end
                 div(class: 'col-4') do
                   submit 'Отправить', class: 'btn btn-success btn-lg'

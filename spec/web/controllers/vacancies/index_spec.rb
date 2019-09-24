@@ -17,6 +17,17 @@ RSpec.describe Web::Controllers::Vacancies::Index, type: :action do
       expect(action.vacancies).to eq([Vacancy.new(id: 123)])
       expect(action.pager).to eq(pager)
     end
+
+    context 'when params inlclude a query' do
+      let(:params) { { query: 'remote:true search text' } }
+
+      it { expect(subject).to be_success }
+
+      it do
+        expect(operation).to receive(:call).with(page: nil, search_query: { remote: 'true', text: 'search text' })
+        subject
+      end
+    end
   end
 
   context 'when params includes unexpected keys' do

@@ -9,12 +9,14 @@ module Vacancies
 
       PAGINATION_LIMIT = 10
 
-      def call(page: 1)
+      # rubocop:disable Lint/UnusedMethodArgument
+      def call(search_query: {}, page: 1)
         pager = vacancy_repo.pager_for_all_with_contact(limit: PAGINATION_LIMIT, page: page || 1)
         result = vacancy_repo.all_with_contact(limit: PAGINATION_LIMIT, page: page || 1)
 
         Success(result: result, pager: pager)
       end
+      # rubocop:enable Lint/UnusedMethodArgument
     end
   end
 end
