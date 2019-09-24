@@ -45,12 +45,11 @@ RSpec.describe Web::Controllers::Subscribers::Create, type: :action do
     end
   end
 
-  #  ALREADY tested with Operation not Action in spec/subscriders/operations/create_spec.rb
-  # context 'with real dependencies' do
-  #   subject { action.call(params) }
+  context 'with real dependencies' do
+    subject { action.call(params) }
 
-  #   let(:action) { described_class.new }
+    let(:action) { described_class.new }
 
-  #   it { expect(subject).to redirect_to '/' }
-  # end
+    it { expect(subject).to redirect_to '/' }
+  end
 end

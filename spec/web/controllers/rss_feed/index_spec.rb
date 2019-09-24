@@ -3,7 +3,7 @@
 RSpec.describe Web::Controllers::RssFeed::Index, type: :action do
   subject { action.call(params) }
 
-  let(:action) { described_class.new(operation: operation,  generator: generator) }
+  let(:action) { described_class.new(operation: operation, generator: generator) }
   let(:generator) { ->(*) { 'rss' } }
   let(:params) { Hash[] }
 
