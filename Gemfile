@@ -51,6 +51,8 @@ gem 'sass'
 gem 'sassc'
 # Slim is a template language. (http://slim-lang.com/)
 gem 'slim'
+# Generic interface to multiple Ruby template engines (http://github.com/rtomayko/tilt/)
+gem 'tilt', '=2.0.9'
 
 ##=================pagination
 # Pagination in your hanami apps (https://github.com/davydovanton/hanami-pagination)

@@ -1,4 +1,4 @@
-###### For  collecting errors app uses Rollbar.
+###### For  collecting errors app uses [Rollbar](https://docs.rollbar.com/docs/ruby#section-getting-started)
 
 ## Setup
 

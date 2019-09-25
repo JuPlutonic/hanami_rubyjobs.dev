@@ -37,8 +37,8 @@ module Vacancies
       end
 
       def call(contact:, vacancy:)
-        company_payload = yield CONTACT_VALIDATOR.call(contact).to_either
-        vacancy_payload = yield VACANCY_VALIDATOR.call(vacancy).to_either
+        company_payload = yield CONTACT_VALIDATOR.call(contact).to_monad
+        vacancy_payload = yield VACANCY_VALIDATOR.call(vacancy).to_monad
 
         vacancy_payload[:details] = markdown_parser.call(vacancy_payload[:details_raw])
         vacancy_payload[:published] = false

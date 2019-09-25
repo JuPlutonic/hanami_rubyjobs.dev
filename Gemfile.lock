@@ -432,6 +432,7 @@ DEPENDENCIES
   simplecov
   simplecov-json
   slim
+  tilt (= 2.0.9)
   xml-sitemap
 
 BUNDLED WITH

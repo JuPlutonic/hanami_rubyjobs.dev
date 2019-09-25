@@ -38,20 +38,25 @@ hr
       code#help__text
         | Доступные фильтры:
         br
-        | - **remote** поиск только в remote или в офисных (remote:false) вакансиях;
+        strong
+          | remote
+        |  поиск только в remote или в офисных (remote:false) вакансиях;
         br
-        | - **tag** поиск по специальному тегу (может быть больше 1го);
+        strong
+          | tag
+        |  поиск по специальному тегу (может быть больше 1го);
         br
-        | - **lang (language)** search by language;
+        strong
+          | lang (language)
+        |  search by language;
         br
-        | Пример:
+        |  Пример:
         br
-        | ```
-        | remote:true tag:pure ruby tag:hanami senior
-        | ```
+        pre
+          code
+            span.hljs-comment
+              | remote:true tag:pure ruby tag:hanami senior
         br
-
-br
 
 ul.list-group
   - vacancies.each do |vacancy|

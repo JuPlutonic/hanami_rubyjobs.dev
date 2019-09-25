@@ -7,7 +7,7 @@ module Web
 
       def vacancy_information(vacancy, analytics = nil)
         published_at = RelativeTime.in_words(vacancy.created_at, locale: :ru)
-        analytics_information = analytics && ", #{analytics.view_count} 👁"
+        analytics_information = analytics && ", #{analytics.view_count} 👀"
 
         # rubocop:disable Metrics/LineLength
         raw "Компания #{company_link(vacancy)} (#{vacancy.location}), опубликована #{published_at}#{analytics_information}"

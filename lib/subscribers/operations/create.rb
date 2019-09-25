@@ -12,7 +12,7 @@ module Subscribers
       end
 
       def call(email:)
-        payload = yield EMAIL_VALIDATOR.call(email: email).to_either
+        payload = yield EMAIL_VALIDATOR.call(email: email).to_monad
 
         Try(Hanami::Model::UniqueConstraintViolationError) do
           subscriber_repo.create(payload)
