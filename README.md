@@ -35,8 +35,10 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 ```
 
 Additional configuration for development (with [(linux)brew](https://brew.sh)).
-Use dotenv gem to set environmental variables automatically. As well if you a zsh-user see [plugin-sourcing-into-zsh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/dotenv).
-
+Use dotenv gem to set environmental variables automatically. As well if you a zsh-user see
+[plugin-sourcing-into-zsh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/dotenv).
+Copy files from development_docker/ to the project's root
+and while you using development environment you should rename/move .dockerignore file.
 ```bash
 pg_ctl -D /home/linuxbrew/.linuxbrew/var/postgres start
 export MODERATION_LOGIN="login"

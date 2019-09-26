@@ -1,0 +1,6 @@
+.git
+.circleci
+development_docker
+coverage
+*.log
+.dockerignore

@@ -11,7 +11,7 @@ module Vacancies
 
       Dry::Validation.load_extensions(:monads)
 
-      VACANCY_VALIDATOR = Dry::Validation.JSON do
+      VACANCY_VALIDATOR = Dry::Validation.Schema do
         required(:position).filled(:str?)
         required(:position_type).filled(:str?)
 
@@ -28,7 +28,7 @@ module Vacancies
         required(:archived_in_weeks).filled(:int?)
       end
 
-      CONTACT_VALIDATOR = Dry::Validation.JSON do
+      CONTACT_VALIDATOR = Dry::Validation.Schema do
         required(:email).filled(:str?)
         required(:full_name).filled(:str?)
 
@@ -37,8 +37,8 @@ module Vacancies
       end
 
       def call(contact:, vacancy:)
-        company_payload = yield CONTACT_VALIDATOR.call(contact).to_monad
-        vacancy_payload = yield VACANCY_VALIDATOR.call(vacancy).to_monad
+        company_payload = yield CONTACT_VALIDATOR.call(contact).to_either
+        vacancy_payload = yield VACANCY_VALIDATOR.call(vacancy).to_either
 
         vacancy_payload[:details] = markdown_parser.call(vacancy_payload[:details_raw])
         vacancy_payload[:published] = false
