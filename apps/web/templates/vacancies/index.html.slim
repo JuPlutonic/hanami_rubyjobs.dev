@@ -13,14 +13,21 @@ hr
 
 br
 
-/.row.mt-3.mb-3
+.row.mt-3.mb-3
   .col-sm-6
     h4 Еженедельная рассылка новых вакансий
     p Подпишитесь на рассылку, что бы быть в курсе новых вакансий, появляющихся на сайте.
   .col-sm-6
     = subscribe_form
 
-hr
+.row.mb-3
+  .col
+    .btn-group.btn-group-toggle
+      = remote_filter_button(text: 'Любые', remote_value: nil)
+      = remote_filter_button(text: 'Удаленные', remote_value: 'true')
+      = remote_filter_button(text: 'В офисе', remote_value: 'false')
+/hr
+
 .row.mt-3.mb-3
   .col-sm
     form#subscriber-form.needs-validation accept-charset="utf-8" action="/" method="GET"
@@ -30,7 +37,7 @@ hr
             input#subscriber-email.form-control name="query" placeholder="Фильтр ..." type="text" value=""
           .col-sm-2
                 button.btn.btn-success type="submit" Фильтровать
-.row.mt-3.mb-3
+/.row.mt-3.mb-3
   .col-sm-2
     a.btn.btn-light aria-controls="collapse" aria-expanded="false" data-toggle="collapse" href="#collapse" role="button" Помощь
   .col-sm-10

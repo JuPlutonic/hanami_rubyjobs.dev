@@ -18,7 +18,7 @@ RSpec.describe Web::Controllers::Vacancies::Index, type: :action do
       expect(action.pager).to eq(pager)
     end
 
-    context 'when params inlclude a query' do
+    context 'when params include a query' do
       let(:params) { { query: 'remote:true search text' } }
 
       it { expect(subject).to be_success }
@@ -28,12 +28,12 @@ RSpec.describe Web::Controllers::Vacancies::Index, type: :action do
         subject
       end
     end
-  end
 
-  context 'when params includes unexpected keys' do
-    let(:params) { { page: 2, unexpected_key: 'hello' } }
+    context 'when params includes unexpected keys' do
+      let(:params) { { page: 2, unexpected_key: 'hello' } }
 
-    it { expect(subject).to be_success }
+      it { expect(subject).to be_success }
+    end
   end
 
   context 'with real dependencies' do
@@ -65,12 +65,12 @@ RSpec.describe Web::Controllers::Vacancies::Index, type: :action do
         subject
         expect(action.vacancies.count).to eq(2)
       end
+    end
 
-      context 'when params includes unexpected keys' do
-        let(:params) { { page: 2, unexpected_key: 'hello' } }
+    context 'when params includes unexpected keys' do
+      let(:params) { { page: 2, unexpected_key: 'hello' } }
 
-        it { expect(subject).to be_success }
-      end
+      it { expect(subject).to be_success }
     end
   end
 end

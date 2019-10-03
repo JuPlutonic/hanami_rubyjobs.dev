@@ -22,7 +22,6 @@ module Web
         end
         # rubocop:enable Metrics/LineLength
 
-        # rubocop:disable Metrics/MethodLength
         def subscribe_form
           form_for :subscriber, routes.subscribers_path, method: :post, class: 'needs-validation', novalidate: true do
             div(class: 'form-group') do
@@ -30,14 +29,35 @@ module Web
                 div(class: 'col-8') do
                   text_field :email, placeholder: 'Email адрес', class: 'form-control', required: true
                 end
-                div(class: 'col-4 mb-1') do
-                  submit 'Отправить', class: 'btn btn-success'
-                end
+                div(class: 'col-4 mb-1') { submit 'Отправить', class: 'btn btn-success' }
               end
             end
           end
         end
-        # rubocop:enable Metrics/MethodLength
+
+        def remote_filter_button(text:, remote_value:)
+          link_params =
+            if remote_value == current_remote_query
+              { class: 'btn btn-light active' }
+            else
+              { class: 'btn btn-light', href: remote_filter_button_href(remote_value) }
+            end
+
+          html.a(link_params) do
+            html.input(type: 'radio')
+            html.span { text }
+          end
+        end
+
+        private
+
+        def current_remote_query
+          search_query[:remote] if %w[true false].include?(search_query[:remote])
+        end
+
+        def remote_filter_button_href(remote_value)
+          routes.root_path(remote_value.nil? ? {} : { query: "remote:#{remote_value}" })
+        end
       end
     end
   end

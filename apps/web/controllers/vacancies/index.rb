@@ -16,6 +16,7 @@ module Web
 
         expose :vacancies
         expose :pager
+        expose :search_query
 
         params do
           optional(:page).filled
@@ -23,7 +24,9 @@ module Web
         end
 
         def call(params)
-          result = operation.call(search_query: search_query, page: params[:page])
+          @search_query = params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
+          result = operation.call(search_query: @search_query, page: params[:page])
+          # result = operation.call(search_query: search_query, page: params[:page], remote_filter: remote_filter_param)
 
           case result
           when Success
@@ -32,11 +35,20 @@ module Web
           end
         end
 
-        private
+        # private
 
-        def search_query
-          params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
-        end
+        # def search_query
+        #   params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
+        # end
+
+        # def remote_filter_param
+        #   @remote_filter_param ||=
+        #     if REMOTE_FILTER_PARAMS.include?(params[:remote_filter])
+        #       params[:remote_filter]
+        #     else
+        #       'none'
+        #     end
+        # end
       end
     end
   end
