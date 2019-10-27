@@ -24,6 +24,8 @@ gem 'xml-sitemap'
 gem 'hanami-model', '~> 1.3'
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/] (https://bitbucket.org/ged/ruby-pg)
 gem 'pg' # 'jdbc-postgres' for jruby
+# The Database Toolkit for Ruby (http://sequel.jeremyevans.net)
+gem 'sequel', '~> 4.48.0'
 
 ##=======dependency managment
 # Organize your code into reusable components (http://dry-rb.org/gems/dry-system)
@@ -48,7 +50,7 @@ gem 'relative_time', github: 'davydovanton/relative_time', branch: 'master'
 # A powerful but elegant CSS compiler that makes CSS fun again. (http://sass-lang.com/)
 gem 'sass'
 # Use libsass with Ruby! (https://github.com/sass/sassc-ruby)
-#gem 'sassc'
+gem 'sassc', '=2.1.0'
 # Slim is a template language. (http://slim-lang.com/)
 gem 'slim'
 # Generic interface to multiple Ruby template engines (http://github.com/rtomayko/tilt/)
