@@ -30,7 +30,7 @@ RSpec.describe Vacancies::Operations::Create, type: :operation do
   end
 
   let(:contact_payload) do
-    { email: 'test@something.com', full_name: 'First Name', company: 'test', site: '' }
+    { email: 'test@blank.org', full_name: 'First Name', company: 'test', site: '' }
   end
 
   context 'when contact and vacancy data is valid' do
