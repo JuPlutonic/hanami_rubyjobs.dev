@@ -48,7 +48,7 @@ gem 'relative_time', github: 'davydovanton/relative_time', branch: 'master'
 # A powerful but elegant CSS compiler that makes CSS fun again. (http://sass-lang.com/)
 gem 'sass'
 # Use libsass with Ruby! (https://github.com/sass/sassc-ruby)
-gem 'sassc'
+#gem 'sassc'
 # Slim is a template language. (http://slim-lang.com/)
 gem 'slim'
 # Generic interface to multiple Ruby template engines (http://github.com/rtomayko/tilt/)
