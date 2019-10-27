@@ -1,3 +1,3 @@
-:schedule:
-  'Vacancies::Workers::VacanciesArchivator':
-    every: 24h
+# :schedule:
+#   'Vacancies::Workers::VacanciesArchivator':
+#     every: 24h
