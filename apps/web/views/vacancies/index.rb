@@ -35,29 +35,29 @@ module Web
           end
         end
 
-        def remote_filter_button(text:, remote_value:)
-          link_params =
-            if remote_value == current_remote_query
-              { class: 'btn btn-light active' }
-            else
-              { class: 'btn btn-light', href: remote_filter_button_href(remote_value) }
-            end
+        # def remote_filter_button(text:, remote_value:)
+        #   link_params =
+        #     if remote_value == current_remote_query
+        #       { class: 'btn btn-light active' }
+        #     else
+        #       { class: 'btn btn-light', href: remote_filter_button_href(remote_value) }
+        #     end
 
-          html.a(link_params) do
-            html.input(type: 'radio')
-            html.span { text }
-          end
-        end
+        #   html.a(link_params) do
+        #     html.input(type: 'radio')
+        #     html.span { text }
+        #   end
+        # end
 
-        private
+        # private
 
-        def current_remote_query
-          search_query[:remote] if %w[true false].include?(search_query[:remote])
-        end
+        # def current_remote_query
+        #   search_query[:remote] if %w[true false].include?(search_query[:remote])
+        # end
 
-        def remote_filter_button_href(remote_value)
-          routes.root_path(remote_value.nil? ? {} : { query: "remote:#{remote_value}" })
-        end
+        # def remote_filter_button_href(remote_value)
+        #   routes.root_path(remote_value.nil? ? {} : { query: "remote:#{remote_value}" })
+        # end
       end
     end
   end

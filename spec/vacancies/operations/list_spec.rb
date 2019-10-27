@@ -36,7 +36,9 @@ RSpec.describe Vacancies::Operations::List, type: :operation do
       it do
         expect(vacancy_query)
           .to receive(:all_with_contact)
-          .with(limit: 10, page: 1, remote_available: nil)
+          .with(limit: 10,
+                page: 1,
+                search_query: Vacancies::Entities::SearchOptions.new(query_attributes.merge(remote: nil)))
         subject
       end
     end
@@ -47,7 +49,9 @@ RSpec.describe Vacancies::Operations::List, type: :operation do
       it do
         expect(vacancy_query)
           .to receive(:all_with_contact)
-          .with(limit: 10, page: 1, remote_available: nil)
+          .with(limit: 10,
+                page: 1,
+                search_query: Vacancies::Entities::SearchOptions.new(query_attributes.merge(remote: nil)))
         subject
       end
     end
@@ -58,7 +62,9 @@ RSpec.describe Vacancies::Operations::List, type: :operation do
       it do
         expect(vacancy_query)
           .to receive(:all_with_contact)
-          .with(limit: 10, page: 1, remote_available: true)
+          .with(limit: 10,
+                page: 1,
+                search_query: Vacancies::Entities::SearchOptions.new(query_attributes.merge(remote: true)))
         subject
       end
     end
@@ -69,7 +75,9 @@ RSpec.describe Vacancies::Operations::List, type: :operation do
       it do
         expect(vacancy_query)
           .to receive(:all_with_contact)
-          .with(limit: 10, page: 1, remote_available: false)
+          .with(limit: 10,
+                page: 1,
+                search_query: Vacancies::Entities::SearchOptions.new(query_attributes.merge(remote: false)))
         subject
       end
     end

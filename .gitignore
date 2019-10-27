@@ -9,3 +9,6 @@ dump.rdb
 .env.test
 .env.development.sample
 .env.test.sample
+.direnv/
+.envrc
+

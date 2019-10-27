@@ -9,14 +9,14 @@ module Web
 
         include Import[
           'libs.search_query_parser',
-          operation: 'vacancies.operations.list'
+          operation: 'vacancies.operations.list',
+          search_options_mapper: 'vacancies.mappers.search_options'
         ]
 
         EMPTY_SEARCH_QUERY = {}.freeze
 
         expose :vacancies
         expose :pager
-        expose :search_query
 
         params do
           optional(:page).filled
@@ -24,9 +24,7 @@ module Web
         end
 
         def call(params)
-          @search_query = params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
-          result = operation.call(search_query: @search_query, page: params[:page])
-          # result = operation.call(search_query: search_query, page: params[:page], remote_filter: remote_filter_param)
+          result = operation.call(search_query: search_query, page: params[:page])
 
           case result
           when Success
@@ -35,20 +33,13 @@ module Web
           end
         end
 
-        # private
+        private
 
-        # def search_query
-        #   params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
-        # end
-
-        # def remote_filter_param
-        #   @remote_filter_param ||=
-        #     if REMOTE_FILTER_PARAMS.include?(params[:remote_filter])
-        #       params[:remote_filter]
-        #     else
-        #       'none'
-        #     end
-        # end
+        def search_query
+          query_attributes = params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
+          initial_attributes = { remote: nil, position_type: nil, location: nil }
+          search_options_mapper.call(initial_attributes.merge(query_attributes))
+        end
       end
     end
   end

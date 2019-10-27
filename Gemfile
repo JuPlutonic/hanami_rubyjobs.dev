@@ -103,9 +103,9 @@ group :test, :development do
   ##==============style check
   # Automatic Ruby code style checking tool. (https://github.com/rubocop-hq/rubocop)
   gem 'rubocop', require: false
-  # Code style checking for RSpec files (https://github.com/rubocop-hq/rubocop-rspec)
-  gem 'rubocop-performance', require: false
   # Automatic performance checking tool for Ruby code. (https://github.com/rubocop-hq/rubocop-performance)
+  gem 'rubocop-performance', require: false
+  # Code style checking for RSpec files (https://github.com/rubocop-hq/rubocop-rspec)
   gem 'rubocop-rspec', '~> 1.25.0', require: false
 
   ##=========mutation testing

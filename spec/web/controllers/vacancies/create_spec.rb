@@ -23,7 +23,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
         archived_in_weeks: '2',
         tags: 'rails, mruby, PostgreSQL',
         contact: {
-          email: 'test@something.com',
+          email: 'test@blank.org',
           full_name: 'First Name',
           company: 'test',
           site: ''
@@ -51,7 +51,7 @@ RSpec.describe Web::Controllers::Vacancies::Create, type: :action do
         archived_in_weeks: 2,
         tags: %w[rails mruby postgresql]
       },
-      contact: { email: 'test@something.com', full_name: 'First Name', company: 'test', site: '' }
+      contact: { email: 'test@blank.org', full_name: 'First Name', company: 'test', site: '' }
     )
 
     subject
