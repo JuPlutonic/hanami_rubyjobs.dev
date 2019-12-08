@@ -12,7 +12,7 @@ gem 'rake'
 
 ##==presentation tier=http lr
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '= 3.12.2'
+gem 'puma', '4.3.1'
 ##======logic tier=http layer
 # The web, with simplicity (http://hanamirb.org)
 gem 'hanami', '1.3.0'
