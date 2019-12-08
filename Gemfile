@@ -12,7 +12,7 @@ gem 'rake'
 
 ##==presentation tier=http lr
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '~> 3.11.0'
+gem 'puma', '= 3.12.2'
 ##======logic tier=http layer
 # The web, with simplicity (http://hanamirb.org)
 gem 'hanami', '1.3.0'
@@ -50,7 +50,7 @@ gem 'relative_time', github: 'davydovanton/relative_time', branch: 'master'
 # A powerful but elegant CSS compiler that makes CSS fun again. (http://sass-lang.com/)
 gem 'sass'
 # Use libsass with Ruby! (https://github.com/sass/sassc-ruby)
-gem 'sassc', '=2.1.0'
+gem 'sassc' # , '=2.1.0'
 # Slim is a template language. (http://slim-lang.com/)
 gem 'slim'
 # Generic interface to multiple Ruby template engines (http://github.com/rtomayko/tilt/)
