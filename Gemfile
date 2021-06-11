@@ -34,7 +34,7 @@ gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 
 ##===================markdown
 # kramdown is a fast, pure-Ruby Markdown-superset converter. (http://kramdown.gettalong.org)
-gem 'kramdown', '1.13.1'
+gem 'kramdown', '2.3.0'
 # Mostly autolinking (https://github.com/vmg/rinku)
 gem 'rinku'
 # A pure-ruby colorizer based on pygments (http://rouge.jneen.net/)
