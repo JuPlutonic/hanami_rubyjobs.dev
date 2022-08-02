@@ -474,5 +474,8 @@ DEPENDENCIES
   tilt (~> 2.0.10)
   xml-sitemap
 
+RUBY VERSION
+   ruby 2.7.6p219
+
 BUNDLED WITH
-   2.3.19
+   2.3.18

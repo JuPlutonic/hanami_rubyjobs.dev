@@ -1,4 +1,4 @@
-FROM ruby:2.5.0-alpine
+FROM ruby:2.7-alpine
 
 # NOTE: postgresql-client required by `hanami db prepare` to create test database
 RUN apk add --update --no-cache build-base postgresql-dev postgresql-client tzdata git \

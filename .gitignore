@@ -5,10 +5,9 @@ dump.rdb
 .idea
 .ruby-version
 .env.dev
-.env.development
-.env.test
 .env.development.sample
 .env.test.sample
 .direnv/
 .envrc
+docker-compose.development.old.yml
 
