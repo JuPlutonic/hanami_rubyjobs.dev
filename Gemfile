@@ -81,6 +81,10 @@ gem 'sidekiq-scheduler'
 # Run any kind of code in parallel processes (https://github.com/grosser/parallel)
 # gem 'parallel'
 
+##==============notifications
+# Ruby wrapper for Telegram's Bot API (https://github.com/atipugin/telegram-bot)
+gem 'telegram-bot-ruby'
+
 group :development do
   ##===========code reloading
   # problems: JRuby&Windows-(Shogun uses fork()), better_errors gem, NewRelic

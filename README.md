@@ -50,6 +50,7 @@ export REDISTOGO_URL="redis://localhost:6379"
 export SERVE_STATIC_ASSETS="true"
 MODERATION_SESSIONS_SECRET=`cat /dev/urandom | tr -dc 'a-f0-9' | head -c 64`
 WEB_SESSIONS_SECRET=`cat /dev/urandom | tr -dc 'a-f0-9' | head -c 64`
+export TELEGRAM_BOT_NAME="hamani_rjd_m8n"
 ```
 
 Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0.beta1/), or jump in [chat](http://chat.hanamirb.org) or in gitter chat [![Gitter](https://badges.gitter.im/hanami/chat.svg)](https://gitter.im/hanami/chat) for help. Enjoy! 🌸
