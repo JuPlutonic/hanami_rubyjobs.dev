@@ -3,7 +3,6 @@
 require 'telegram/bot'
 
 class TelegramSender
-
   attr_reader :bot, :logger
 
   def initialize(token:, logger:)

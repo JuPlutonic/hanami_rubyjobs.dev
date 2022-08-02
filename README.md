@@ -2,7 +2,7 @@
 
 ## Setup
 
-There is Dockerfile, ruby version in this file: 2.6.6
+There is Dockerfile, ruby version in this file: 2.7.6
 
 ```
 % docker build .

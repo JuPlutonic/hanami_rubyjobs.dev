@@ -40,13 +40,7 @@ module Vacancies
       def call(contact:, vacancy:)
         company_payload = yield CONTACT_VALIDATOR.call(contact).to_either
         vacancy_payload = yield VACANCY_VALIDATOR.call(vacancy).to_either
-
-        vacancy_payload[:details] = markdown_parser.call(vacancy_payload[:details_raw])
-        vacancy_payload[:published] = false
-        vacancy_payload[:archived_at] = calculate_archive_date(vacancy_payload[:archived_in_weeks])
-        vacancy_payload.delete(:archived_in_weeks)
-
-        vacancy = yield persist_vacancy(company_payload, vacancy_payload)
+        vacancy = yield persist_vacancy(company_payload, change_vacancy_payload(vacancy_payload))
 
         send_notification(vacancy)
 
@@ -60,6 +54,14 @@ module Vacancies
 
       def calculate_archive_date(archived_in_weeks)
         (Time.now + archived_in_weeks * WEEK).to_date
+      end
+
+      def change_vacancy_payload(vacancy_payload)
+        vacancy_payload[:details] = markdown_parser.call(vacancy_payload[:details_raw])
+        vacancy_payload[:published] = false
+        vacancy_payload[:archived_at] = calculate_archive_date(vacancy_payload[:archived_in_weeks])
+        vacancy_payload.delete(:archived_in_weeks)
+        vacancy_payload
       end
 
       def persist_vacancy(company_payload, vacancy_payload)

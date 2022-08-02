@@ -6,7 +6,7 @@ require:
 # We are writing beautiful code.
 # There is nothing to change here. At least now.
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
   DefaultFormatter: fuubar
   DisplayCopNames: true
   ExtraDetails: true

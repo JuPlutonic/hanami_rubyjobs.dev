@@ -1,4 +1,4 @@
-FROM ruby:2.6.6
+FROM ruby:2.7.6
 
 RUN apt-get update && apt-get install --assume-yes postgresql postgresql-client
 RUN apt-get install git
@@ -19,4 +19,4 @@ ENV HANAMI_ENV=production
 
 EXPOSE 2300
 
-CMD hanami db migrate && hanami server
+CMD hanami db migrate && puma -t 5:5 -p 2300 -e production
