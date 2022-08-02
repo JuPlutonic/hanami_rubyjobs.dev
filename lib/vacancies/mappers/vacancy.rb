@@ -8,6 +8,9 @@ module Vacancies
       def call(payload)
         payload = Hash(payload)
 
+        contact_payload = payload[:contact]
+        contact_payload[:company] = contact_payload[:company].sub(/\A\s+/, '')
+
         {
           vacancy: {
             position: payload[:position],
@@ -18,8 +21,8 @@ module Vacancies
             location: payload[:location],
             remote_available: checkbox_to_bool(payload[:remote_available]),
 
-            salary_min: payload[:salary][:min].to_i,
-            salary_max: payload[:salary][:max].to_i,
+            salary_min: payload[:salary][:min].tr(' ', '').to_i,
+            salary_max: payload[:salary][:max].tr(' ', '').to_i,
             salary_currency: payload[:salary][:currency],
             salary_unit: payload[:salary][:unit],
 
