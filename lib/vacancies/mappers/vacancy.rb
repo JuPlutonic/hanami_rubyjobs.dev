@@ -8,6 +8,9 @@ module Vacancies
       def call(payload)
         payload = Hash(payload)
 
+        contact_payload = payload[:contact]
+        contact_payload[:company] = contact_payload[:company].sub(/\A\s+/, '')
+
         {
           vacancy: {
             position: payload[:position],

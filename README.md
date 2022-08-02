@@ -1,5 +1,5 @@
-###### For  collecting errors app uses [Rollbar](https://docs.rollbar.com/docs/ruby#section-getting-started)
-Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](https://docs.hanamirb.org/1.3.0/, or jump in [chat](http://chat.hanamirb.org) or in gitter chat [![Gitter](https://badges.gitter.im/hanami/chat.svg)](https://gitter.im/hanami/chat) for help. Enjoy! 🌸
+###### For  collecting errors, app uses [Rollbar](https://docs.rollbar.com/docs/ruby#section-getting-started)
+Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](https://docs.hanamirb.org/1.3.0/), or jump in [chat](http://chat.hanamirb.org) or in gitter chat [![Gitter](https://badges.gitter.im/hanami/chat.svg)](https://gitter.im/hanami/chat) for help. Enjoy! 🌸
 
 ## Setup
 
