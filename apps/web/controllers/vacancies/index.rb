@@ -13,8 +13,6 @@ module Web
           search_options_mapper: 'vacancies.mappers.search_options'
         ]
 
-        EMPTY_SEARCH_QUERY = {}.freeze
-
         expose :vacancies
         expose :pager
 
@@ -36,9 +34,7 @@ module Web
         private
 
         def search_query
-          query_attributes = params[:query] ? search_query_parser.call(params[:query]) : EMPTY_SEARCH_QUERY
-          initial_attributes = { remote: nil, position_type: nil, location: nil }
-          search_options_mapper.call(initial_attributes.merge(query_attributes))
+          search_options_mapper.call(search_query_parser.call(params[:query]))
         end
       end
     end

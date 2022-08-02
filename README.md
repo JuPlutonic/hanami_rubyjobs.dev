@@ -3,7 +3,7 @@ Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](https://docs.ha
 
 ## Setup
 
-Prefer istallation and configuration for development with [(linux)brew](https://brew.sh)]
+Prefer istallation and configuration for development with [(linux)brew](https://brew.sh)
 
 ```bash
 # (Linux)brew already installed
@@ -17,7 +17,7 @@ redis-server /home/linuxbrew/.linuxbrew/etc/redis.conf
 
 Use dotenv gem to set environmental variables automatically. \
 As well if you a zsh-user see
-[plugin-sourcing-into-zsh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/dotenv) \
+[plugin-sourcing-into-zsh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/dotenv)
 
 ```bash
 export MODERATION_LOGIN="login"
@@ -32,7 +32,7 @@ export TELEGRAM_BOT_NAME="hamani_rjd_m8n"
 ```
 
 Copy files from development_docker/ to the project's root \
-and while you using development environment you should rename/move .dockerignore file.
+and while you using development environment you should rename/move .dockerignore file
 
 ```bash
 cp development_docker/* ./
@@ -47,25 +47,25 @@ Prepare gems:
 % bundle install
 ```
 
-How to run tests:
+How to run tests
 
 ```bash
 % bundle exec rake
 ```
 
-How to run the development console:
+How to run the development console
 
 ```bash
 % bundle exec hanami console
 ```
 
-How to run the development server:
+How to run the development server
 
 ```bash
 % bundle exec hanami server
 ```
 
-How to prepare (create and migrate) DB for `development` and `test` environments:
+How to prepare (create and migrate) DB for `development` and `test` environments
 
 ```bash
 % bundle exec hanami db prepare
@@ -74,7 +74,7 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 ### Troubleshooting
 If you are using peer authentication and get password request, update DATABASE_URL in .env.{ENVIRONMENT} not to include host.
 
-Example:
+Example
 
 ```bash
 # .env.test
