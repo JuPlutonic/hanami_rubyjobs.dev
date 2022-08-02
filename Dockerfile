@@ -1,4 +1,4 @@
-FROM ruby:2.7.6
+FROM ruby:2.7-bullseye
 
 RUN apt-get update && apt-get install --assume-yes postgresql postgresql-client
 RUN apt-get install git

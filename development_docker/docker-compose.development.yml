@@ -7,7 +7,7 @@ services:
 
 services:
   postgres:
-    image: postgres:9.6.12-alpine
+    image: postgres:12-alpine
     environment:
       POSTGRES_USER: rubyjobs
       POSTGRES_DB: rubyjobs_development
