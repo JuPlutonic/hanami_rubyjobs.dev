@@ -10,6 +10,7 @@ AllCops:
   DefaultFormatter: fuubar
   DisplayCopNames: true
   ExtraDetails: true
+  NewCops: enable
   Exclude:
   # Ignore vendored gems
   - vendor/**/*
@@ -17,6 +18,9 @@ AllCops:
   RSpec:
     Patterns:
     - '_spec.rb$'
+
+Layout/LineLength:
+  Max: 120
 
 # Ignore block length in DSLs using blocks extensively
 Metrics/BlockLength:
@@ -62,19 +66,16 @@ Metrics/AbcSize:
   # Rodauth configuration
   - lib/roda/plugins/authentication.rb
 
-Metrics/LineLength:
-  Max: 120
-
 # Use UTF-8 as the source file encoding, specify when needed.
 Style/Encoding:
   StyleGuide: '#utf-8'
-  Enabled: when_needed
+  Enabled: true
 
 Naming/FileName:
   Exclude:
   - apps/*-*/lib/*-*.rb
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 
 Naming/MemoizedInstanceVariableName:
@@ -176,6 +177,9 @@ RSpec/MultipleDescribes:
 RSpec/MultipleExpectations:
   Enabled: false
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
 RSpec/NamedSubject:
   Enabled: false
 
@@ -190,6 +194,9 @@ RSpec/RepeatedDescription:
 
 RSpec/RepeatedExample:
   Enabled: true
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: false
 
 RSpec/ScatteredLet:
   Enabled: false

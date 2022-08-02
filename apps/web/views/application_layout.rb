@@ -9,9 +9,9 @@ module Web
         published_at = RelativeTime.in_words(vacancy.created_at, locale: :ru)
         analytics_information = analytics && ", #{analytics.view_count} 👀"
 
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         raw "Компания #{company_link(vacancy)} (#{vacancy.location}), опубликована #{published_at}#{analytics_information}"
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
       end
 
       def company_link(vacancy)
@@ -49,7 +49,6 @@ module Web
         end
       end
 
-      # rubocop:disable Metrics/AbcSize
       def vacancy_salary_information(vacancy)
         currency = CURRENCY_VALUES[vacancy.salary_currency]
         unit = UNIT_VALUES[vacancy.salary_unit]
@@ -62,7 +61,6 @@ module Web
           text " #{currency} #{unit}"
         end
       end
-      # rubocop:enable Metrics/AbcSize
 
       def round_price(price)
         return nil unless price

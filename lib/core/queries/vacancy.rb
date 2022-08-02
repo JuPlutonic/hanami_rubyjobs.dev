@@ -27,9 +27,7 @@ module Queries
     }.freeze
 
     def all_with_contact_relation(limit:, page:, search_query:)
-      query = repo.aggregate(:contact)
-                  .where(published: true, deleted_at: nil)
-                  .where('archived_at > ?', Date.today)
+      query = base_query
 
       search_query.to_h.each do |key, value|
         modifier = QUERY_MODIFIERS[key]
@@ -38,6 +36,12 @@ module Queries
 
       query.map_to(::Vacancy).order { created_at.desc }
            .per_page(limit).page(page || 1)
+    end
+
+    def base_query
+      repo.aggregate(:contact)
+          .where(archived_at > Date.today)
+          .where(published: true, deleted_at: nil)
     end
   end
 end

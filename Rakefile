@@ -3,11 +3,11 @@
 require 'rake'
 require 'hanami/rake_tasks'
 
-# rubocop:disable Lint/HandleExceptions
+# rubocop:disable Lint/SuppressedException
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
   task default: :spec
 rescue LoadError
 end
-# rubocop:enable Lint/HandleExceptions
+# rubocop:enable Lint/SuppressedException

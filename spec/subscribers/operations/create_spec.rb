@@ -46,6 +46,7 @@ RSpec.describe Subscribers::Operations::Create, type: :operation do
     let(:email) { 'test@blank.org' }
 
     it { expect(subject).to be_success }
+
     it do
       expect { subject }.to change { SubscriberRepository.new.all.count }.by(1)
     end

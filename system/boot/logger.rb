@@ -14,6 +14,6 @@ Container.boot(:logger) do |container|
 
   # detect default logger IO output
   def logger_io
-    Hanami.env == 'test' ? StringIO.new : STDOUT
+    Hanami.env == 'test' ? StringIO.new : $stdout
   end
 end
