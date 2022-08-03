@@ -34,36 +34,103 @@ br
       .form-group
         .row
           .col-sm-10
-            input#subscriber-email.form-control name="query" placeholder="Фильтр ..." type="text" value=""
+            input#subscriber-email.form-control name="query" placeholder="Фильтр ..." type="text" value="#{params[:query]}"
           .col-sm-2
                 button.btn.btn-success type="submit" Фильтровать
-/.row.mt-3.mb-3
+.row.mt-3.mb-3
   .col-sm-2
     a.btn.btn-light aria-controls="collapse" aria-expanded="false" data-toggle="collapse" href="#collapse" role="button" Помощь
+
   .col-sm-10
     #collapse.collapse
       code#help__text
+        | Для поиска используется строка с параметрами, как на github.
+        br
+        br
         | Доступные фильтры:
         br
-        strong
-          | remote
-        |  поиск только в remote или в офисных (remote:false) вакансиях;
+
+.row.mt-4.mb-4.align-items-center.align-items-lg-baseline
+  .col-sm-7
+    h1 Вакансии для разработчиков Ruby, Hanami и Rails
+
+  .col-sm-5
+    .d-flex.justify-content-lg-end
+      .btn-group role="group" aria-label="Basic example"
+        = link_to 'Отзывы о компаниях', routes.companies_path, class: 'btn btn-primary new-vacancy-btn'
+        = link_to 'Добавить вакансию', routes.new_vacancy_path, class: 'btn btn-primary new-vacancy-btn'
+
+hr
+
+.row.mt-3.mb-3
+  .col
+    | RubyJobs.dev — бесплатная площадка для размещения вакансий и поиска разработчиков на Ruby, Hanami и Rails.
+
+br
+
+/.row.mt-3.mb-3
+  .col-sm-6
+    h4 Еженедельная рассылка новых вакансий
+    p Подпишитесь на рассылку, что бы быть в курсе новых вакансий, появляющихся на сайте.
+  .col-sm-6
+    = subscribe_form
+/hr
+.row.mt-3.mb-3
+  .col-sm
+    form#subscriber-form.needs-validation accept-charset="utf-8" action="/" method="GET"
+      .form-group
+        .row
+          .col-sm-10
+            input#subscriber-email.form-control name="query" placeholder="Фильтр ..." type="text" value="#{params[:query]}"
+          .col-sm-2
+                button.btn.btn-success type="submit" Фильтровать
+
+.row.mt-3.mb-3
+  .col-sm-2
+    a.btn.btn-light aria-controls="collapse" aria-expanded="false" data-toggle="collapse" href="#collapse" role="button" Помощь
+
+  .col-sm-10
+    #collapse.collapse
+      code#help__text
+        | Для поиска используется строка с параметрами, как на github.
         br
-        strong
+        br
+        | Доступные фильтры:
+        br
+        | - **remote** поиск только в remote или в офисных вакансиях;
+        br
+        | - **position_type** поиск по позиции, доступные варианты: full_time, part_time, contractor, intern, temp, other
+        br
+        | - **location** поиск по локации;
+        br
+        | - **salary** поиск по минимальной заработной плате;
+        br
+        | - **salary_currency** поиск заработной платы по валюте, доступные варианты: rub, usd, eur, kzt
+        br
+        br
+        | Пример использования (Найти все remote фултайм вакансии в которых упоминается ханами):
+        br
+        | ```
+        br
+        | remote:true position_type:full_time hanami
+        br
+        | ```
+        br
+        /strong
           | tag
-        |  поиск по специальному тегу (может быть больше 1го);
-        br
-        strong
+        /|  поиск по специальному тегу (может быть больше 1го);
+        /br
+        /strong
           | lang (language)
-        |  search by language;
-        br
-        |  Пример:
-        br
-        pre
+        /|  search by language;
+        /br
+        /|  Пример:
+        /br
+        /pre
           code
             span.hljs-comment
               | remote:true tag:pure ruby tag:hanami senior
-        br
+        /br
 
 ul.list-group
   - vacancies.each do |vacancy|
