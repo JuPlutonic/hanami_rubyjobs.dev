@@ -75,7 +75,7 @@ module Vacancies
 
       def send_notification(vacancy)
         message = "New vacancy for moderation! \n\n\"#{vacancy.position}\" \n\nhttps://rubyjobs.dev/moderation"
-        Try { telegram_sender.call("@#{ENV['TELEGRAM_BOT_NAME']}", message) }
+        Try { telegram_sender.call("@#{Container[:settings].telegram_bot_name}", message) }
       end
     end
   end

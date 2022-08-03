@@ -10,7 +10,7 @@ require_relative '../apps/moderation/application'
 
 Hanami.configure do
   middleware.use RequestId
-  middleware.use Rack::Session::Cookie, secret: ENV['WEB_SESSIONS_SECRET']
+  middleware.use Rack::Session::Cookie, secret: Container[:settings].web_sessions_secret
 
   mount Moderation::Application, at: '/moderation'
   mount Web::Application, at: '/'
@@ -29,7 +29,7 @@ Hanami.configure do
     # adapter :sql, 'postgres://localhost/pgtesting'
     # socket: /var/run/mysqld/mysqld.sock
 
-    adapter :sql, ENV.fetch('DATABASE_URL')
+    adapter :sql, Container[:settings].database_url
 
     ##
     # Migrations
@@ -43,8 +43,9 @@ Hanami.configure do
     # `ENV['DATABASE_CONNECTION_VALIDATION_TIMEOUT']` seconds.
     gateway do |g|
       g.connection.extension(:connection_validator)
-      g.connection.pool.connection_validation_timeout = ENV['DATABASE_CONNECTION_VALIDATION_TIMEOUT'] || 30 # seconds
-    end
+      g.connection
+       .pool
+       .connection_validation_timeout = Container[:settings].database_connection_validation_timeout || 30
   end
 
   # See: http://hanamirb.org/guides/projects/logging
