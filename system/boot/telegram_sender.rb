@@ -16,10 +16,11 @@ end
 
 Container.boot(:telegram_sender) do |container|
   use :logger
+  use :settings
 
   init do
-    logger.debug('Working with telegram bot tg://', ENV.fetch('TELEGRAM_BOT_NAME', ''))
-    sender = TelegramSender.new(token: ENV.fetch('TELEGRAM_BOT_TOKEN', ''), logger: container['logger'])
+    logger.debug('Working with telegram bot tg://', container[:settings].telegram_bot_name)
+    sender = TelegramSender.new(token: container[:settings].telegram_bot_token, logger: container['logger'])
     container.register('libs.telegram_sender', sender)
   end
 end
