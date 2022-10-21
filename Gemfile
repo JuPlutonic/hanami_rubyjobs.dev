@@ -120,7 +120,7 @@ group :test do
   # Capybara aims to simplify the process of integration testing Rack applications (https://github.com/teamcapybara/capybara)
   gem 'capybara'
   # Nokogiri is an HTML, XML, SAX, and Reader parser
-  gem 'nokogiri', '~> 1.13.8'
+  gem 'nokogiri', '~> 1.13.9'
   # rspec-3.8.0 (http://github.com/rspec)
   gem 'rspec'
   # RSpec Matchers for Hanami (https://github.com/davydovanton/rspec-hanami)
